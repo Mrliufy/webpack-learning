@@ -1,3 +1,4 @@
+
 class Parent {
     constructor(weight, stature) {
         // this.name = options.name;
@@ -28,8 +29,30 @@ class child extends Parent {
     }
 }
 
-const parentInstance = new Parent(70, 1.65);
-console.log(parentInstance);
-const childInstance = new child(56, 1.68, 'XiAn');
-console.log(childInstance);
-childInstance.parentAge();
+// const parentInstance = new Parent(70, 1.65);
+// console.log(parentInstance);
+// const childInstance = new child(56, 1.68, 'XiAn');
+// console.log(childInstance);
+// childInstance.parentAge();
+
+class Vue {
+    constructor(props){
+        this.methods = props.methods;
+        this.test = () => {
+            console.log(this);
+        }
+    }
+}
+
+const instance = new Vue({
+    methods: {
+        fn: () => {
+            debugger
+            console.log(this);
+        }
+    }
+});
+
+console.log(instance)
+instance.methods.fn();
+instance.test()

@@ -77,7 +77,7 @@
 
 
 //注意点：
-//1.箭头函数的this是在定义时就决定好的；
+//1.箭头函数是不会创建自己的上下文；
 //2.promise的then方法需要重新返回一个新的promise实例；
 //3.注意resolve(value)的值的透传；
 //4.then方法如果返回的是promise实例，则需要该返回的promise实例resolve或reject之后才能继续执行上一层的then方法。

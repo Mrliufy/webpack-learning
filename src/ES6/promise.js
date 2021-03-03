@@ -71,3 +71,31 @@ console.log(testPromise().then(val => new Promise((rs) => setTimeout(() => {
     console.log('middle');
     rs(12);
 }, 2000)).then(val => console.log(val))))
+
+function testResolve() {
+    Promise.resolve()
+        .then(() => {
+            console.log("then1");
+            Promise.resolve()
+                .then(() => {
+                    console.log("then1-1");
+                    return 1;
+                })
+                .then((val) => {
+                    console.log(val);
+                    console.log("then1-2");
+                });
+        })
+        .then((val) => {
+            console.log('outer then:' + val)
+            console.log("then2");
+        })
+        .then(() => {
+            console.log("then3");
+        })
+        .then(() => {
+            console.log("then4");
+        });
+}
+
+testResolve();

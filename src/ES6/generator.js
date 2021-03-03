@@ -7,5 +7,5 @@ function * generator(){
 }
 
 const ge = generator();
-console.log(ge)
+console.log(ge);
 console.log('next:' + ge.next().value);
